@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Luiz Pereira de Mattos | Cyber Defense Portfolio</title>
+    <!-- Importando uma fonte moderna e geométrica do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIÁVEIS DE DESIGN --- */
+        :root {
+            --primary: #0a0d5e; /* Azul Profundo (Base) */
+            --secondary: #0f146c; /* Azul Escuro (Headers/Bordas) */
+            --accent-neon: #00ffff; /* Ciano Elétrico (Destaque/HUD) */
+            --light-bg: #12172a; /* Fundo quase preto (Cyberpunk) */
+            --dark-text: #e0e0ff; /* Texto claro com leve tom azulado */
+            --card-bg: #1c213a; /* Fundo das seções/cards */
+        }
+
+        /* --- RESET & BASE --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- HEADER (Painel Principal) --- */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2); /* Sombra neon */
+            border-bottom: 3px solid var(--accent-neon);
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif; /* Fonte geométrica para o título */
+            font-size: 3.2rem;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px var(--accent-neon); /* Brilho neon no nome */
+        }
+
+        .shield-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent-neon);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-right: 15px;
+            box-shadow: 0 0 15px var(--accent-neon);
+        }
+
+        /* --- CONTATO (HUD Bar) --- */
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--card-bg); /* Fundo da seção de contato */
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border: 1px solid var(--accent-neon); /* Borda neon */
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .contact-item {
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px); /* Efeito de "levantamento" ao passar o mouse */
+        }
+
+        .icon-badge {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        /* --- BOTÃO CTA (NOVO) --- */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: var(--accent-neon);
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid var(--accent-neon);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+            margin-top: 20px; /* Espaço acima do botão */
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-neon);
+            color: var(--primary);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 25px var(--accent-neon); /* Brilho maior no hover */
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        section {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-left: 5px solid var(--accent-neon);
+        }
+
+        /* --- TÍTULOS DE SEÇÃO --- */
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-neon);
+            border-bottom: 2px solid var(--accent-neon);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+        }
+
+        /* --- LISTAS E SKILLS --- */
+        ul {
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            position: relative;
+            border-left: 2px dotted rgba(0, 255, 255, 0.5);
+        }
+        
+        li::before {
+            content: "›"; /* Seta de navegação/comando */
+            color: var(--accent-neon);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary);
+            color: var(--dark-text);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid var(--accent-neon);
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-neon);
+            color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent-neon);
+        }
+
+        /* --- EXPERIÊNCIA PROFISSIONAL --- */
+        .experience-item {
+            border-left: 5px solid var(--accent-neon);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(0, 255, 255, 0.3);
+        }
+        
+        .experience-item h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-neon);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-item p em {
+            color: var(--accent-neon);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER (Terminal Output) --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--secondary);
+            color: var(--accent-neon);
+            margin-top: 30px;
+            border-top: 3px solid var(--accent-neon);
+            box-shadow: 0 -5px 15px rgba(0, 255, 255, 0.15);
+        }
+
+        .footer-links a {
+            color: var(--accent-neon);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-weight: 700;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-shadow: 0 0 8px var(--accent-neon);
+            transform: scale(1.05);
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            .contact-info { flex-direction: column; gap: 18px; }
+            .contact-item { width: 100%; padding: 10px 0; }
+            section::before { 
+                left: 10px; 
+                top: 10px; 
+                width: 10px; 
+                height: 10px; 
+                background-color: var(--accent-neon); 
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: var(--light-bg);">
+    <div class="container">
+        <!-- HEADER: Painel de Comando -->
+        <header>
+            <h1><span class="shield-icon">🛡️</span> Jorge Luiz Pereira de Mattos — Cyber Defense</h1>
+            <p style="font-family: 'Orbitron', sans-serif; font-size: 1.1rem;">Analista de Suporte Júnior | Especialista em Segurança Digital & SOC</p>
+            
+            <!-- CTA BUTTON (NOVO) -->
+            <a href="curriculo_ti_defesa_cibernetica.pdf" download="Curriculo_Jorge_Mattos_Defesa_Cibernetica.pdf" class="cta-button">
+                ⬇️ BAIXAR CV (PDF)
+            </a>
+
+            <!-- HUD Bar de Contatos -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon-badge">📍</span>
+                    <strong style="color: white;">Rio de Janeiro - RJ</strong><br>
+                    (21) 99939-6028
+                </div>
+                <div class="contact-item">
+                    <span class="icon-badge">📧</span>
+                    <a href="mailto:morp17@hotmail.com" style="color: white; text-decoration: none;">morp17@hotmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="icon-badge">🔗</span>
+                    <a href="https://linkedin.com/in/jorgeluizpereira17" target="_blank" style="color: white; text-decoration: none;">
+                        linkedin.com/in/jorgeluizpereira17
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- OBJETIVO PROFISSIONAL -->
+        <section>
+            <h2><span class="icon-badge">🎯</span> Objetivo Profissional</h2>
+            <p>Atuar na área de Tecnologia da Informação e Segurança Cibernética, aplicando conhecimentos em redes, sistemas operacionais, análise de vulnerabilidades e defesa de infraestruturas digitais. Busco contribuir em equipes de TI, SOC, suporte técnico ou operações de segurança.</p>
+        </section>
+
+        <!-- FORMAÇÃO ACADÊMICA -->
+        <section>
+            <h2><span class="icon-badge">📚</span> Formação Acadêmica</h2>
+            <ul style="padding-left: 0;">
+                <li style="border-left-color: var(--accent-neon);"><strong>Tecnólogo em Defesa Cibernética</strong> — Estácio de Sá, Rio de Janeiro (Concluído 2026)</li>
+                <li style="border-left-color: var(--accent-neon);"><strong>Técnico em Informática</strong> — Senac, Rio de Janeiro (Concluído)</li>
+            </ul>
+        </section>
+
+        <!-- CERTIFICAÇÕES -->
+        <section>
+            <h2><span class="icon-badge">✅</span> Certificações</h2>
+            <div class="skills">
+                <span class="skill-tag">MCP (Microsoft Certified Professional)</span>
+                <span class="skill-tag">Inglês Técnico</span>
+            </div>
+        </section>
+
+        <!-- HABILIDADES TÉCNICAS -->
+        <section>
+            <h2><span class="icon-badge">⚙️</span> Habilidades Técnicas</h2>
+            <div class="skills">
+                <span class="skill-tag">🛡️ Segurança da Informação</span>
+                <span class="skill-tag">🔍 Análise de Vulnerabilidades</span>
+                <span class="skill-tag">📡 Monitoramento de Redes</span>
+                <span class="skill-tag">💻 Sistemas Operacionais (Windows/Linux)</span>
+                <span class="skill-tag">🌐 Redes TCP/IP</span>
+                <span class="skill-tag">🖥️ Suporte Técnico (Hardware/Software)</span>
+                <span class="skill-tag">☁️ Microsoft Office Suite</span>
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIA PROFISSIONAL -->
+        <section>
+            <h2><span class="icon-badge">💼</span> Experiência Profissional</h2>
+            
+            <div class="experience-item">
+                <h3>Analista de Desenvolvimento de Sistemas — NTX Serviços Administrativos Ltda</h3>
+                <p><em style="color: var(--accent-neon);">Abril/2012 – Março/2013</em></p>
+                <ul style="padding-left: 0;">
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Análise e desenvolvimento de sistemas</strong>, levantamento de requisitos e suporte a aplicações.</li>
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Elaboração de documentação técnica</strong> e apoio a equipes de TI.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Operador de Computador — CTIS Tecnologia Ltda</h3>
+                <p><em style="color: var(--accent-neon);">Março/2013 – Junho/2013</em></p>
+                <ul style="padding-left: 0;">
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Operação e monitoramento</strong> de sistemas computacionais em ambiente corporativo.</li>
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Suporte técnico</strong> a usuários e manutenção de equipamentos.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Mensageiro / Contínuo — LOCANTY COM SERVICOS LTDA</h3>
+                <p><em style="color: var(--accent-neon);">Maio/2006 – Abril/2012</em></p>
+                <ul style="padding-left: 0;">
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Operação de sistemas de ponto de venda (PDV)</strong> e ferramentas digitais de atendimento.</li>
+                    <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Gestão de processos operacionais</strong> com uso de tecnologia.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CURSOS COMPLEMENTARES -->
+        <section>
+            <h2><span class="icon-badge">➕</span> Cursos Complementares</h2>
+            <ul style="padding-left: 0;">
+                <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Inglês Técnico</strong> — Leitura e interpretação de documentação técnica em inglês.</li>
+                <li style="border-left-color: var(--accent-neon);"><strong style="color: var(--dark-text);">Graduação em Defesa Cibernética</strong> — Em andamento (Estácio de Sá, 2026).</li>
+            </ul>
+        </section>
+
+        <!-- FOOTER: Terminal Output -->
+        <footer style="background-color: var(--secondary);">
+            <p>// SYSTEM ONLINE //</p>
+            <p>&copy; 2026 J.L.P.M. — Portfólio de Defesa Cibernética</p>
+            <div class="footer-links">
+                <a href="mailto:morp17@gmail.com">[> COMANDO] Contatar</a> | 
+                <a href="https://linkedin.com/in/jorgeluizpereira17" target="_blank">[> EXECUTE] LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
